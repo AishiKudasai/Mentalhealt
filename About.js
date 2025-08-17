@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
         text: "To be human is to have flaws, because nobody is perfect. Being flawless may seem too good to be true. Always remember, your imperfections make you perfect.",
-        author: "Unknown"
+        author: "Joanna Angelica"
     }
 ];
 
@@ -487,6 +487,7 @@ function showNewsletterMessage(message, type = 'success') {
         document.getElementById('quote-author').textContent = `— ${randomQuote.author}`;
     }
 });
+
 
 
 
