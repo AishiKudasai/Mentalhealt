@@ -225,9 +225,20 @@
                     <a href="#mood-tracker" class="hover:text-indigo-200">Mood Tracker</a>
                     
                 </div>
-                <button class="md:hidden focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-expanded="false" aria-label="Open menu">
+                <i class="fas fa-bars text-xl"></i>
                 </button>
+
+            </div>
+        </div>
+
+    <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu bg-indigo-700 md:hidden">
+            <div class="flex flex-col space-y-2 px-4 py-3">
+                <a href="#home" class="hover:text-indigo-200 px-2 py-2">Home</a>
+                <a href="#about" class="hover:text-indigo-200 px-2 py-2">About</a>
+                <a href="#self-care" class="hover:text-indigo-200 px-2 py-2">Self-Care</a>
+                <a href="#mood-tracker" class="hover:text-indigo-200 px-2 py-2">Mood Tracker</a>
             </div>
         </div>
     </nav>
@@ -669,5 +680,4 @@ scrollBtn.addEventListener("click", () => {
 
 </body>
 </html>
-
 
