@@ -7,32 +7,34 @@
   <meta name="description" content="A single-file, responsive, interactive educational guide about mental health: explanations, when to seek help, how to support yourself and others, myths vs facts, self-check, mood check-in, and wellbeing tools." />
   <style>
     :root {
-      --bg: #0b0c10;
-      --surface: #111217;
-      --panel: #141822;
-      --text: #e9eef7;
-      --muted: #b7c3d6;
-      --brand: #6c8cff;
-      --brand-2: #7ad1e6;
-      --ok: #22c55e;
-      --warn: #f59e0b;
-      --danger: #ef4444;
-      --card: #0e1117;
-      --border: #2a2f3a;
-      --shadow: 0 8px 30px rgba(0,0,0,.35);
-    }
-    [data-theme="light"] {
-      --bg: #f7f8fb;
-      --surface: #ffffff;
-      --panel: #ffffff;
-      --text: #0e1320;
-      --muted: #35405a;
-      --brand: #3b5bff;
-      --brand-2: #0ea5e9;
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --shadow: 0 6px 24px rgba(2, 6, 23, .08);
-    }
+  /* Dark theme (default) */
+  --bg: #0b0c10;
+  --surface: #111217;
+  --panel: #141822;
+  --text: #e9eef7;
+  --muted: #b7c3d6;
+  --brand: #1e3a8a;   /* Dark indigo */
+  --brand-2: #2563eb; /* Strong blue */
+  --ok: #22c55e;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --card: #0e1117;
+  --border: #2a2f3a;
+  --shadow: 0 8px 30px rgba(0,0,0,.35);
+}
+
+[data-theme="light"] {
+  --bg: #f0f9ff;
+  --surface: #ffffff;
+  --panel: #ffffff;
+  --text: #0e1320;
+  --muted: #35405a;
+  --brand: #60a5fa;   /* Light blue */
+  --brand-2: #38bdf8; /* Sky blue accent */
+  --card: #ffffff;
+  --border: #dbeafe;
+  --shadow: 0 6px 24px rgba(2, 6, 23, .08);
+}
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
