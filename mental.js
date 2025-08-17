@@ -487,3 +487,6 @@ function showNewsletterMessage(message, type = 'success') {
         document.getElementById('quote-author').textContent = `— ${randomQuote.author}`;
     }
 });
+
+
+
