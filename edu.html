@@ -161,6 +161,28 @@
     a, button, input, textarea, select { outline-color: var(--brand); }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
+    /* Extra spacing for readability */
+main section {
+  margin-bottom: 32px; /* add space between sections */
+}
+
+.card {
+  padding: 24px;       /* more space inside cards */
+  margin-bottom: 24px; /* space between stacked cards */
+}
+
+.row {
+  gap: 24px; /* wider gaps in grid layouts */
+}
+
+.hero {
+  padding: 40px 24px; /* more space around intro */
+}
+
+footer {
+  margin-top: 48px; /* extra breathing room before footer */
+}
+
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       .acc-panel { transition: none; }
