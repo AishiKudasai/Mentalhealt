@@ -8,13 +8,13 @@
   <style>
 :root {
   /* Dark mode (default) */
-  --bg: #0b0c10;
+  --bg: #051F20;
   --surface: #111217;
   --panel: #141822;
   --text: #e9eef7;
   --muted: #b7c3d6;
-  --brand: #1e3a8a;   /* Dark blue / Indigo */
-  --brand-2: #2563eb; /* Blue accent */
+  --brand:#396746;   /* Dark blue / Indigo */
+  --brand-2:#60865e; /* Blue accent */
   --ok: #22c55e;
   --warn: #f59e0b;
   --danger: #ef4444;
@@ -24,35 +24,26 @@
 }
 
 [data-theme="light"] {
-  --bg: #f0f9ff;
-  --surface: #ffffff;
-  --panel: #ffffff;
-  --text: #0e1320;
-  --muted: #35405a;
-  --brand: #60a5fa;   /* Light blue */
-  --brand-2: #38bdf8; /* Sky blue accent */
-  --ok: #22c55e;
-  --warn: #eab308;
-  --danger: #ef4444;
-  --card: #ffffff;
-  --border: #dbeafe;
-  --shadow: 0 6px 24px rgba(2, 6, 23, .08);
+  --bg: #fffaf5;        /* background (warm cream) */
+  --surface: #ffffff;   /* card surface */
+  --panel: #fef3e6;     /* panels (peachy tint) */
+  --text: #3a2c1a;      /* main text (warm brown) */
+  --muted: #6b4f3f;     /* muted text */
+  --brand: #051F20;     /* terracotta */
+  --brand-2: #60865e;   /* warm golden accent */
+  --ok: #4f8a4f;        /* forest green */
+  --warn: #e9b949;      /* honey yellow */
+  --danger: #d1495b;    /* brick red */
+  --card: #ffffff;      /* card bg */
+  --border: #e6d5c3;    /* warm beige borders */
+  --shadow: 0 4px 12px rgba(58, 44, 26, 0.15); /* soft warm shadow */
 }
-
-/* Lavender background for all cards */
-.card {
-  background-color: #e6e6fa; /* Lavender */
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px; /* Adjust padding as needed */
-  box-shadow: var(--shadow);
-}
-
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
       margin: 0;
+      text-align: justify;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
       background: var(--bg);
       color: var(--text);
@@ -84,7 +75,49 @@
     }
     .actions { display: flex; gap: 8px; align-items: center; }
     button, .btn { cursor: pointer; border: 0; background: var(--brand); color: #fff; border-radius: 10px; padding: 10px 14px; font-weight: 600; box-shadow: var(--shadow); }
-    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border);  }
+
+/* Toggle switch */
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: #374151; /* green = light mode */
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.theme-toggle .circle {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  left: 4px;
+}
+
+/* Dark mode (circle goes right) */
+.theme-toggle.dark {
+  background: #4ade80; /* dark gray for dark mode */
+}
+.theme-toggle.dark .circle {
+  transform: translateX(30px);
+  background: #000;
+  color: #fff;
+}
+
+
+
 
     /* Progress bar */
     .progress { position: fixed; inset: 0 auto auto 0; height: 3px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); width: 0; z-index: 40; }
@@ -115,6 +148,7 @@
     .quiz .q { border: 1px dashed var(--border); border-radius: 12px; padding: 12px; margin: 8px 0; display: grid; gap: 10px; }
     .quiz label { display: flex; align-items: center; gap: 10px; }
     .quiz .result { margin-top: 10px; padding: 12px; border-radius: 12px; background: color-mix(in oklab, var(--brand-2) 12%, transparent); border: 1px solid var(--border); }
+    
     /* Grounding */
     .grounding-tool {
         font-family: Arial, sans-serif;
@@ -157,7 +191,7 @@
     /* Tools */
     .tools { display: grid; gap: 16px; }
     @media (min-width: 768px){ .tools { grid-template-columns: 1fr 1fr; } }
-    .tool { border: 1px solid var(--border); border-radius: 14px; padding: 14px; background: var(--surface); }
+    .tool { border: 1px solid var(--border); border-radius: 14px; padding: 14px; background: var(--surface); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.40);}
     .tool h4 { margin: 4px 0 8px; }
     .meter { height: 10px; background: #1f2430; border-radius: 999px; overflow: hidden; border: 1px solid var(--border); }
     .meter > div { height: 100%; width: 0; background: linear-gradient(90deg, var(--brand), var(--brand-2)); transition: width .2s ease; }
@@ -187,7 +221,6 @@ main section {
 .row {
   gap: 24px; /* wider gaps in grid layouts */
 }
-
 .hero {
   padding: 40px 24px; /* more space around intro */
 }
@@ -212,12 +245,13 @@ footer {
         <div>Mind Matters — Interactive Guide</div>
       </div>
       <div class="actions">
-        <button class="btn secondary" id="toggleTheme" aria-pressed="false" aria-label="Toggle theme">🌗 Theme</button>
-        <a class="btn secondary" href="https://aishikudasai.github.io/mentalhealth/" >Back</a>
+        <div class="theme-toggle" id="toggleTheme" aria-label="Toggle theme">
+      <div class="circle"></div>
+    </div>
+        <a class="btn secondary" href="About.html" >Back</a>
       </div>
     </div>
   </header>
-
   <main id="start" class="wrap" role="main">
     <!-- HERO / INTRO -->
     <section class="hero card" aria-labelledby="intro-title">
@@ -226,7 +260,8 @@ footer {
       <p>
         Mental health affects how we think, feel, and act. It influences how we handle stress, relate to others, and make choices. Everyone has mental health — and everyone can strengthen it. This single‑file guide offers clear explanations, practical tools, and interactive check‑ins. It is not a diagnosis and does not replace professional care.
       </p>
-      <p class="note">If you are in immediate danger or thinking about harming yourself, contact your local emergency services right away. You deserve support.</p>
+      <br>
+      <p class="note"><i><b style="color: #60865e;">If you are in immediate danger or thinking about harming yourself, contact your local emergency services right away. You deserve support.</b></i></p>
     </section>
 
     <!-- WHAT & DIFFERENCE -->
@@ -281,7 +316,7 @@ footer {
     </section>
 
     <!-- SIGNS & SYMPTOMS -->
-    <section class="card" aria-labelledby="signs-title">
+    <section class="card cards" aria-labelledby="signs-title">
       <h2 id="signs-title">Signs & symptoms</h2>
       <div class="row row-3">
         <article class="tool">
@@ -297,7 +332,7 @@ footer {
           <p>Withdrawal from friends and activities, reduced ability to concentrate, noticeable decline in performance, misuse of alcohol or drugs, major changes in eating or sleeping patterns, excessive anger or irritability, violent behavior, difficulty coping with daily responsibilities.</p>
         </article>
       </div>
-      <p class="note">Experiencing one or more of these does not automatically mean you have a mental illness. Consider patterns over time and impact on daily life.</p>
+      <p class="note"><i><b style="color: #60865e;">Experiencing one or more of these does not automatically mean you have a mental illness. Consider patterns over time and impact on daily life.</b></i></p>
     </section>
 
     <!-- WHEN TO SEEK HELP -->
@@ -492,15 +527,24 @@ footer {
 
   <script>
     // Theme toggle with persistence
-    const themeBtn = document.getElementById('toggleTheme');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
-    themeBtn?.addEventListener('click', () => {
-      const now = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      document.body.setAttribute('data-theme', now);
-      localStorage.setItem('theme', now);
-      themeBtn.setAttribute('aria-pressed', now === 'dark');
-    });
+    const toggleTheme = document.getElementById("toggleTheme");
+  const circle = toggleTheme.querySelector(".circle");
+  const body = document.body;
+
+  // Default: Light mode (left, sun)
+  body.setAttribute("data-theme", "light");
+
+  toggleTheme.addEventListener("click", () => {
+    if (body.getAttribute("data-theme") === "light") {
+      // Switch to Dark Mode
+      body.removeAttribute("data-theme");
+      toggleTheme.classList.add("dark");
+    } else {
+      // Switch back to Light Mode
+      body.setAttribute("data-theme", "light");
+      toggleTheme.classList.remove("dark");
+    }
+  });
 
     // Reading progress
     const prog = document.getElementById('progress');
